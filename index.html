@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<title>Attn! Hack doc</title>
+		<style type="text/css">
+			ol{margin:0;padding:0}.c1{padding-left:0pt;direction:ltr;margin-left:72pt}.c6{padding-left:0pt;direction:ltr;margin-left:36pt}.c8{list-style-type:circle;margin:0;padding:0}.c5{list-style-type:disc;margin:0;padding:0}.c0{padding-left:0pt;direction:ltr;margin-left:108pt}.c7{list-style-type:square;margin:0;padding:0}.c10{max-width:468pt;background-color:#ffffff;padding:72pt 72pt 72pt 72pt}.c11{padding-left:0pt;margin-left:144pt}.c4{height:11pt;direction:ltr}.c9{direction:ltr}.c2{font-weight:bold}.c12{color:#ff9900}.c3{color:#6aa84f}.title{padding-top:24pt;line-height:1.15;text-align:left;color:#000000;font-size:36pt;font-family:Arial;font-weight:bold;padding-bottom:6pt}.subtitle{padding-top:18pt;line-height:1.15;text-align:left;color:#666666;font-style:italic;font-size:24pt;font-family:Georgia;padding-bottom:4pt}p{color:#000000;font-size:11pt;margin:0;font-family:Arial}h1{padding-top:24pt;line-height:1.15;text-align:left;color:#000000;font-size:18pt;font-family:Arial;font-weight:bold;padding-bottom:6pt}h2{padding-top:18pt;line-height:1.15;text-align:left;color:#000000;font-size:14pt;font-family:Arial;font-weight:bold;padding-bottom:4pt}h3{padding-top:14pt;line-height:1.15;text-align:left;color:#666666;font-size:12pt;font-family:Arial;font-weight:bold;padding-bottom:4pt}h4{padding-top:12pt;line-height:1.15;text-align:left;color:#666666;font-style:italic;font-size:11pt;font-family:Arial;padding-bottom:2pt}h5{padding-top:11pt;line-height:1.15;text-align:left;color:#666666;font-size:10pt;font-family:Arial;font-weight:bold;padding-bottom:2pt}h6{padding-top:10pt;line-height:1.15;text-align:left;color:#666666;font-style:italic;font-size:10pt;font-family:Arial;padding-bottom:2pt}
+		</style>
+		<script type="text/javascript" src="jquery.1.7.1.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body class="c10">
+		<p class="c9">
+			<span class="c2">Hack 1</span>
+		</p>
+		<p class="c4">
+			<span class="c2"></span>
+		</p>
+		<p class="c9">
+			<span>Aim 1: fix the problem of not being able to fix periods where we didn&rsquo;t &lsquo;off&rsquo;</span>
+		</p>
+		<p class="c4">
+			<span></span>
+		</p>
+		<ol class="c5" start="1">
+			<li class="c6"><span class="c3">when the tick is clicked</span></li>
+		</ol>
+		<ol class="c8" start="1">
+			<li class="c1"><span class="c3">look for what has changed</span></li>
+		</ol>
+		<ol class="c7" start="1">
+			<li class="c0"><span class="c3">if it was notes or project, update the start event</span></li>
+			<li class="c0"><span class="c3">if it was duration</span></li>
+		</ol>
+		<ol class="c5" start="1">
+			<li class="c9 c11"><span class="c3">if it is a reduction in duration, update the end event</span></li>
+		</ol>
+		<p class="c4">
+			<span></span>
+		</p>
+		<p class="c9">
+			<span>Jon&rsquo;s other two pain points:</span>
+		</p>
+		<ol class="c5" start="1">
+			<li class="c6"><span>not easily getting info out in a way I can put into a spreadsheet</span></li>
+			<li class="c6"><span>not being able to put a date filter in (e.g. attn since this point)</span></li>
+		</ol>
+		<p class="c4">
+			<span></span>
+		</p>
+		<p class="c4">
+			<span></span>
+		</p>
+		<p class="c9">
+			<span class="c2">Hack 2</span>
+		</p>
+		<p class="c4">
+			<span></span>
+		</p>
+		<ol class="c5" start="1">
+			<li class="c6"><span class="c12">Make delete period work</span></li>
+		</ol>
+		<ol class="c8" start="1">
+			<li class="c1"><span>we wrote some tests, but...</span></li>
+			<li class="c1"><span>found that we&rsquo;ll need to take events out of the attn.events array as well as delete them from the server, and we weren&rsquo;t sure the best way to reference or look up the actual event object from the bit of the analysis list that mentions it</span></li>
+		</ol>
+		<ol class="c5" start="2">
+			<li class="c6"><span>TO &amp; FROM</span></li>
+		</ol>
+		<ol class="c8" start="1">
+			<li class="c1"><span>interface</span></li>
+		</ol>
+		<ol class="c7" start="1">
+			<li class="c0"><span>hovering over a date shows up/down arrows</span></li>
+			<li class="c0"><span>clicking the up arrow removes all of the earlier dates, and vice versa, arrow becomes permanent, and adds to/from text to filter</span></li>
+			<li class="c0"><span>hovering over permanent arrow shows x - clicking this removes the filter</span></li>
+			<li class="c0"><span>clicking the up and the down arrow on the same day filters to just that day </span></li>
+		</ol>
+		<ol class="c8" start="2">
+			<li class="c1"><span class="c3">filtering</span></li>
+		</ol>
+		<ol class="c7" start="1">
+			<li class="c0"><span class="c3">add &ldquo;from &lt;date&gt;&rdquo;</span></li>
+			<li class="c0"><span class="c3">add &ldquo;to &lt;date&gt;&rdquo;</span></li>
+		</ol>
+		<ol class="c5" start="3">
+			<li class="c6"><span>Input</span></li>
+		</ol>
+		<ol class="c8" start="3">
+			<li class="c1"><span>spinner only on sync</span></li>
+			<li class="c1"><span>visual signifiers in input field e.g. [tags x]</span></li>
+			<li class="c1"><span>auto-complete (for projects) via the drop-down originally planned</span></li>
+		</ol>
+		<p class="c4">
+			<span></span>
+		</p>
+		<p class="c4">
+			<span></span>
+		</p>
+		<p class="c4">
+			<span></span>
+		</p>
+		<p class="c4">
+			<span></span>
+		</p>
+		<p class="c9">
+			<span>A list of usability issues to keep track of stuff</span>
+		</p>
+		<ol class="c5" start="1">
+			<li class="c6"><span>One I&rsquo;ve just noticed is that it is really annoying that if you have filtered a list of attns down, that when you make an edit and save, the filtered list is reset to the non-filtered attn list.</span></li>
+		</ol>
+		<ol class="c8" start="1">
+			<li class="c1"><span>Jon says we can fix this by passing the filter into the url.</span></li>
+		</ol>
+		<ol class="c5" start="2">
+			<li class="c6"><span>It would be good to have feedback on things which it seems you can do but actually can&rsquo;t, like &lsquo;edit&rsquo; a period which is still open, or delete a period etc.</span></li>
+			<li class="c6"><span>it would be good to have &lsquo;syncing&rsquo; / &lsquo;working&rsquo; feedback when you do things which take a moment, eg when you press enter on the input screen, or when you&rsquo;ve typed some stuff into the filter bar.</span></li>
+		</ol>
+		<script type="text/javascript" src="jquery.1.7.1.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
